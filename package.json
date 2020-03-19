@@ -1,0 +1,32 @@
+{
+    "name": "lyric-box",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "rollup -c ",
+        "dev": "rollup -c -w",
+        "start": "sirv public --single "
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^11.0.0",
+        "@rollup/plugin-node-resolve": "^7.0.0",
+        "node-sass": "^4.13.1",
+        "rollup": "^1.20.0",
+        "rollup-plugin-livereload": "^1.0.0",
+        "rollup-plugin-scss": "^2.1.0",
+        "rollup-plugin-svelte": "^5.0.3",
+        "rollup-plugin-terser": "^5.1.2",
+        "sass": "^1.26.2",
+        "scss": "^0.2.4",
+        "svelte": "^3.0.0",
+        "svelte-preprocess": "^3.4.0",
+        "svelte-preprocess-sass": "^0.2.0"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "lodash": "^4.17.15",
+        "page.js": "^4.13.3",
+        "shortid": "^2.2.15",
+        "sirv-cli": "^0.4.4",
+        "svelte-spa-router": "^2.0.1"
+    }
+}
