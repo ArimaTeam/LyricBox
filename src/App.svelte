@@ -8,10 +8,23 @@
   import Footer from "./UI/Footer.svelte";
   import Contact from "./routes/Contact.svelte";
   import Lyric from "./routes/Lyric.svelte";
+  import JustMobile from "./UI/JustMobile.svelte";
 
   import { onDestroy, getContext, setContext } from "svelte";
   import { writable } from "svelte/store";
   import { params } from "./params.js";
+  let width;
+  let showContent = true;
+  $: if (width <= 700) {
+    showContent = true;
+    console.log(showContent);
+  } else {
+    showContent = false;
+    console.log(showContent);
+  }
+
+  // $: if () {console.log(window.innerWidth);}
+
   // onDestroy(
   //   getContext("params").subscribe(params => {
   //     console.log(params);
@@ -48,25 +61,30 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={width} />
 <!-- 
 <svelte:component this={page} {params} /> -->
-<Router>
-  <Route path="/">
-    <Home />
-  </Route>
-  <Route path="/search/">
-    <Search />
-  </Route>
-  <Route path="/favorite">
-    <Favorite />
-  </Route>
-  <Route path="/contact">
-    <Contact />
-  </Route>
-  <Route path="/lyric/:id">
-    <Lyric />
-  </Route>
+{#if showContent}
+  <Router>
+    <Route path="/">
+      <Home />
+    </Route>
+    <Route path="/search/">
+      <Search />
+    </Route>
+    <Route path="/favorite">
+      <Favorite />
+    </Route>
+    <Route path="/contact">
+      <Contact />
+    </Route>
+    <Route path="/lyric/:id">
+      <Lyric />
+    </Route>
 
-  <!-- <Route path="/*">Not found</Route> -->
-</Router>
-<Footer currentPage={$params.canonicalPath} />
+    <!-- <Route path="/*">Not found</Route> -->
+  </Router>
+  <Footer currentPage={$params.canonicalPath} />
+{:else}
+  <JustMobile />
+{/if}
