@@ -15,73 +15,34 @@
   import _ from "lodash";
   import { getContext } from "svelte";
 
-  // let y = 0;
-  // let x;
-  // onMount(() => {
-  //   y = $homeY;
-  // });
-  // onDestroy(() => {
-  //   console.log(y);
-  //   homeY.set(y);
-  //   validSelectedItems.set([]);
-  // });
-
-  // function returnNonEmptyArr(array) {
-  //   return _.filter(array, item => {
-  //     return item.name;
-  //   });
-  // }
-  // let lyricsRequest = axios.get("http://127.0.0.1:8000/api/musics");
-  // console.log(lyricsRequest);
   let inputValue = "",
     selectedItems,
     history,
     genreMusic,
     genreMusics,
     searchedMusics;
-  $: history = JSON.parse(localStorage.getItem("history"));
+  $: history = JSON.parse(localStorage.getItem("history")); // history in localstorage
   $: genreMusics = genreMusic
     ? genreMusic.reduce((a, b) => [...a, ...b], [])
     : [];
   $: {
     if (inputValue) {
+      // remove all of lyrics items shown  at writing in input form
       genreMusic = [];
       genreMusics = [];
       selectedItems = [];
       validSelectedItems.set([]);
     } else {
+      // if input form is empty => remove the searched items
       searchedMusics = [];
     }
   }
   async function search() {
+    //search function for search input
     searchedMusics = (await axios.get(
       `http://127.0.0.1:8000/api/search?query=${inputValue}&limit=${$limit}`
     )).data.data;
   }
-
-  // genreMusic = [
-  //   ...genreMusic,
-  //   [
-  //     ...(await axios.get(
-  //       `http://127.0.0.1:8000/api/search?query=${genre.name}&limit=${limit}`
-  //     )).data.data
-  //   ]
-  // ];
-  // genreMusic = (await axios.get(
-  //   `http://127.0.0.1:8000/api/search?query=${genre.name}&limit=${limit}`
-  // )).data.data;
-  // console.log(
-  //   (await axios.get(
-  //     `http://127.0.0.1:8000/api/search?query=${genre.name}&limit=${limit}`
-  //   )).data.data
-  // );
-
-  // $: console.log(selectedItems);
-  // $: validSelectedItems = _.compact(selectedItems);
-  // // $: console.log(_.compact(selectedItems));
-  // $: validSelectedItems.forEach(element => {
-  //   console.log(element.name);
-  // });
 </script>
 
 <style type="text/scss">
@@ -149,11 +110,13 @@
   {/if}
 
   <FavSongList caption={genreMusics.length ? 'Lyrics' : 'History'} />
-  <!-- {#await lyricsRequest then value}{value.data}{/await} -->
+  <!-- if genre buttons are active -->
   {#if genreMusics.length}
     <MusicItems songs={genreMusics} />
+    <!-- if input form is not empty => show the searched musics -->
   {:else if inputValue}
     <MusicItems songs={searchedMusics} />
+    <!-- history -->
   {:else if history.length}
     <MusicItems songs={history} />
   {:else}

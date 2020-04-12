@@ -34,5 +34,5 @@
   on:click={() => {
     dispatch('genre');
   }}>
-  <img src={image ? image : 'images/music/Group 36.png'} alt="" />
+  <img src={image ? image : 'images/Group 36.svg'} alt="" />
 </button>

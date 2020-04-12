@@ -7,27 +7,32 @@
   import _ from "lodash";
   let selectedItems = $validSelectedItems;
 
-  // let selectedItems = [];
+  // moving the selected items to writable store
   $: {
     validSelectedItems.set(_.compact(selectedItems));
   }
 
   let GenreMusic = [
-    { id: 1, image: "images/music/Group 33.png", selected: false, name: "Rap" },
+    {
+      id: 1,
+      image: "/images/music/Group 33 (2).svg",
+      selected: false,
+      name: "Rap"
+    },
     {
       id: 2,
-      image: "images/music/piano 1.png",
+      image: "/images/music/piano 1 (1).svg",
       selected: false,
       name: "Classical"
     },
     {
       id: 3,
-      image: "images/music/trumpet 1.png",
+      image: "images/music/trumpet 1.svg",
       selected: false,
       name: "Jazz"
     },
-    { id: 4, image: "images/music/guitar 1.png", selected: false, name: "Pop" },
-    { id: 5, image: "images/music/dj 1.png", selected: false, name: "Blues" }
+    { id: 4, image: "images/music/guitar 1.svg", selected: false, name: "Pop" },
+    { id: 5, image: "images/music/dj 1.svg", selected: false, name: "Blues" }
   ];
   let button;
 </script>

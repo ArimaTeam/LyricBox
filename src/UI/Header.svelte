@@ -31,6 +31,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   .header {
+    font-family: "Ubuntu", sans-serif;
     width: 90%;
     margin: 0 auto;
     display: flex;

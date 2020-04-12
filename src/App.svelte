@@ -15,6 +15,7 @@
   import { params } from "./params.js";
   let width;
   let showContent = true;
+  // create user agent
   $: if (width <= 700) {
     showContent = true;
     console.log(showContent);

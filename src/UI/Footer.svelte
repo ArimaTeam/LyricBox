@@ -2,24 +2,24 @@
   import { onDestroy, onMount } from "svelte";
   import { get, writable } from "svelte/store";
   import { slide, fade } from "svelte/transition";
-
+  // default page => to activate the red point
   export let currentPage = "/";
   let footerItems = [
     {
       id: 1,
-      image: "/images/Vector (1).png",
+      image: "/images/Vector.svg",
       link: "/",
       name: "home"
     },
     {
       id: 2,
-      image: "/images/Vector (2).png",
+      image: "/images/Vector (3).svg",
       link: "/search",
       name: "search"
     },
     {
       id: 3,
-      image: "/images/Vector (3).png",
+      image: "/images/Vector (2).svg",
       link: "/favorite",
       name: "favorite"
     }
