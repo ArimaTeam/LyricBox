@@ -90,13 +90,11 @@
       margin: 0 auto;
     }
     @media (prefers-color-scheme: dark) {
-      
-      .footer {
-        background: #252427;
-      }
+
+        background-color: #252427!important;
       img {
-        -webkit-filter: invert(100%); /* Safari/Chrome */
-        filter: invert(100%);
+        -webkit-filter: invert(100%)!important; /* Safari/Chrome */
+        filter: invert(100%)!important;
       }
     }
   }

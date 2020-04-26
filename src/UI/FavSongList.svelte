@@ -100,6 +100,12 @@
         color: white;
       }
     }
+    .filter {
+      background:#252427!important;
+      button {
+        color:gray!important;
+      }
+    }
   }
 </style>
 

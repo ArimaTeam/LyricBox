@@ -26,6 +26,11 @@
       font-size: 32px;
     }
   }
+   @media (prefers-color-scheme: dark) {
+     span {
+      color: white!important;
+     }
+    }
 </style>
 
 <!-- <svelte:window bind:scrollY={y} /> -->

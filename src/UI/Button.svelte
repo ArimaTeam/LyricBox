@@ -30,9 +30,20 @@
       background-color: #252427!important;
       
     }
-    .dark {
+    img {
+      filter:invert(100%);
+
+    }
+    button.dark  {
+      
       background-color: #252427!important;
   }
+  img.dark {
+    background:none;
+          filter:invert(0);
+
+  }
+
 
   }
 </style>
@@ -45,6 +56,6 @@
   on:click={() => {
     dispatch('genre');
   }}>
-  <img src={image ? image : 'images/Group 36.svg'} alt="" />
-  
+  <img class:dark src={image ? image : 'images/Group 36.svg'} alt="" />
+
 </button>
