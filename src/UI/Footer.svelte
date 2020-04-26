@@ -90,6 +90,7 @@
       margin: 0 auto;
     }
     @media (prefers-color-scheme: dark) {
+      
       .footer {
         background: #252427;
       }

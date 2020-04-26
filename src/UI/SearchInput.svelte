@@ -35,6 +35,8 @@
       }
     }
   }
+  @media (prefers-color-scheme: dark) {
+  }
 </style>
 
 <div class="search-input">

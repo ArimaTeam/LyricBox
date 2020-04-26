@@ -44,7 +44,7 @@
     display: flex;
     justify-content: space-between;
   }
-</style>
+  </style>
 
 <div
   class="GenreButtons"

@@ -86,6 +86,12 @@
     margin-top: 3rem;
     color: gray;
   }
+  @media (prefers-color-scheme: dark) {
+      
+      span {
+        color:#FFFFFF!important;
+      }
+    }
 </style>
 
 <!-- <svelte:body class="body" /> -->

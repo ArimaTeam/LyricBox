@@ -24,6 +24,17 @@
   .dark {
     background: #161616;
   }
+
+  @media (prefers-color-scheme: dark) {
+    button {
+      background-color: #252427!important;
+      
+    }
+    .dark {
+      background-color: #252427!important;
+  }
+
+  }
 </style>
 
 <button
@@ -35,4 +46,5 @@
     dispatch('genre');
   }}>
   <img src={image ? image : 'images/Group 36.svg'} alt="" />
+  
 </button>
