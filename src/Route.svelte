@@ -16,7 +16,7 @@
 
       // params.set({ path });
 
-      $current_path = path;
+      !path.includes(".js") && ($current_path = path);
     }
   );
 </script>

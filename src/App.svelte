@@ -23,14 +23,6 @@
     showContent = false;
     console.log(showContent);
   }
-
-  // $: if () {console.log(window.innerWidth);}
-
-  // onDestroy(
-  //   getContext("params").subscribe(params => {
-  //     console.log(params);
-  //   })
-  // );
 </script>
 
 <style type="text/scss">
@@ -82,10 +74,9 @@
     <Route path="/lyric/:id">
       <Lyric />
     </Route>
+    <Footer currentPage={$params.canonicalPath} />
 
-    <!-- <Route path="/*">Not found</Route> -->
   </Router>
-  <Footer currentPage={$params.canonicalPath} />
 {:else}
   <JustMobile />
 {/if}

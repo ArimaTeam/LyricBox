@@ -24716,7 +24716,7 @@ var app = (function () {
     		params.set(activePage);
 
     		// params.set({ path });
-    		set_store_value(current_path, $current_path = path);
+    		!path.includes(".js") && set_store_value(current_path, $current_path = path);
     	});
 
     	const writable_props = ["path"];
@@ -25469,7 +25469,7 @@ var app = (function () {
 
     const { console: console_1$3 } = globals;
 
-    // (93:0) {:else}
+    // (84:0) {:else}
     function create_else_block$4(ctx) {
     	let current;
     	const justmobile = new JustMobile({ $$inline: true });
@@ -25501,16 +25501,15 @@ var app = (function () {
     		block,
     		id: create_else_block$4.name,
     		type: "else",
-    		source: "(93:0) {:else}",
+    		source: "(84:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:0) {#if showContent}
+    // (64:0) {#if showContent}
     function create_if_block$8(ctx) {
-    	let t;
     	let current;
 
     	const router = new Router({
@@ -25521,52 +25520,34 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const footer = new Footer({
-    			props: {
-    				currentPage: /*$params*/ ctx[2].canonicalPath
-    			},
-    			$$inline: true
-    		});
-
     	const block = {
     		c: function create() {
     			create_component(router.$$.fragment);
-    			t = space();
-    			create_component(footer.$$.fragment);
     		},
     		m: function mount(target, anchor) {
     			mount_component(router, target, anchor);
-    			insert_dev(target, t, anchor);
-    			mount_component(footer, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
     			const router_changes = {};
 
-    			if (dirty & /*$$scope*/ 16) {
+    			if (dirty & /*$$scope, $params*/ 20) {
     				router_changes.$$scope = { dirty, ctx };
     			}
 
     			router.$set(router_changes);
-    			const footer_changes = {};
-    			if (dirty & /*$params*/ 4) footer_changes.currentPage = /*$params*/ ctx[2].canonicalPath;
-    			footer.$set(footer_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(router.$$.fragment, local);
-    			transition_in(footer.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(router.$$.fragment, local);
-    			transition_out(footer.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			destroy_component(router, detaching);
-    			if (detaching) detach_dev(t);
-    			destroy_component(footer, detaching);
     		}
     	};
 
@@ -25574,14 +25555,14 @@ var app = (function () {
     		block,
     		id: create_if_block$8.name,
     		type: "if",
-    		source: "(72:0) {#if showContent}",
+    		source: "(64:0) {#if showContent}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:4) <Route path="/">
+    // (66:4) <Route path="/">
     function create_default_slot_5(ctx) {
     	let current;
     	const home = new Home({ $$inline: true });
@@ -25612,14 +25593,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(74:4) <Route path=\\\"/\\\">",
+    		source: "(66:4) <Route path=\\\"/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:4) <Route path="/search/">
+    // (69:4) <Route path="/search/">
     function create_default_slot_4(ctx) {
     	let current;
     	const search = new Search({ $$inline: true });
@@ -25650,14 +25631,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(77:4) <Route path=\\\"/search/\\\">",
+    		source: "(69:4) <Route path=\\\"/search/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:4) <Route path="/favorite">
+    // (72:4) <Route path="/favorite">
     function create_default_slot_3(ctx) {
     	let current;
     	const favorite = new Favorite({ $$inline: true });
@@ -25688,14 +25669,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(80:4) <Route path=\\\"/favorite\\\">",
+    		source: "(72:4) <Route path=\\\"/favorite\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (83:4) <Route path="/contact">
+    // (75:4) <Route path="/contact">
     function create_default_slot_2(ctx) {
     	let current;
     	const contact = new Contact({ $$inline: true });
@@ -25726,14 +25707,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(83:4) <Route path=\\\"/contact\\\">",
+    		source: "(75:4) <Route path=\\\"/contact\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:4) <Route path="/lyric/:id">
+    // (78:4) <Route path="/lyric/:id">
     function create_default_slot_1(ctx) {
     	let current;
     	const lyric = new Lyric({ $$inline: true });
@@ -25764,19 +25745,20 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(86:4) <Route path=\\\"/lyric/:id\\\">",
+    		source: "(78:4) <Route path=\\\"/lyric/:id\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:2) <Router>
+    // (65:2) <Router>
     function create_default_slot(ctx) {
     	let t0;
     	let t1;
     	let t2;
     	let t3;
+    	let t4;
     	let current;
 
     	const route0 = new Route$1({
@@ -25824,6 +25806,13 @@ var app = (function () {
     			$$inline: true
     		});
 
+    	const footer = new Footer({
+    			props: {
+    				currentPage: /*$params*/ ctx[2].canonicalPath
+    			},
+    			$$inline: true
+    		});
+
     	const block = {
     		c: function create() {
     			create_component(route0.$$.fragment);
@@ -25835,6 +25824,8 @@ var app = (function () {
     			create_component(route3.$$.fragment);
     			t3 = space();
     			create_component(route4.$$.fragment);
+    			t4 = space();
+    			create_component(footer.$$.fragment);
     		},
     		m: function mount(target, anchor) {
     			mount_component(route0, target, anchor);
@@ -25846,6 +25837,8 @@ var app = (function () {
     			mount_component(route3, target, anchor);
     			insert_dev(target, t3, anchor);
     			mount_component(route4, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(footer, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
@@ -25884,6 +25877,9 @@ var app = (function () {
     			}
 
     			route4.$set(route4_changes);
+    			const footer_changes = {};
+    			if (dirty & /*$params*/ 4) footer_changes.currentPage = /*$params*/ ctx[2].canonicalPath;
+    			footer.$set(footer_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -25892,6 +25888,7 @@ var app = (function () {
     			transition_in(route2.$$.fragment, local);
     			transition_in(route3.$$.fragment, local);
     			transition_in(route4.$$.fragment, local);
+    			transition_in(footer.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
@@ -25900,6 +25897,7 @@ var app = (function () {
     			transition_out(route2.$$.fragment, local);
     			transition_out(route3.$$.fragment, local);
     			transition_out(route4.$$.fragment, local);
+    			transition_out(footer.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -25912,6 +25910,8 @@ var app = (function () {
     			destroy_component(route3, detaching);
     			if (detaching) detach_dev(t3);
     			destroy_component(route4, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(footer, detaching);
     		}
     	};
 
@@ -25919,7 +25919,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(73:2) <Router>",
+    		source: "(65:2) <Router>",
     		ctx
     	});
 
@@ -26090,10 +26090,22 @@ var app = (function () {
     	}
     }
 
+    console.log(navigator);
+
+    if ('serviceWorker' in navigator) {
+    	try {
+    		navigator.serviceWorker.register('/sw.js');
+    		console.log();
+    		console.log('sw registerd');
+    	} catch (error) {
+    		console.log('sw filed with error: ', error);
+    	}
+    }
+
     const app = new App({
-    	target: document.body,
-    	props: {
-    		name: 'world'
+    	target : document.body,
+    	props  : {
+    		name : 'world'
     	}
     });
 
