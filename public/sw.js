@@ -11,7 +11,7 @@ const staticAssets = [
 
 workbox.precaching.precacheAndRoute(staticAssets);
 workbox.routing.registerRoute(
-	/\.(?:png|gif|jpg|jpeg|webp|svg)$/,
+	/\.(?:png|gif|jpg|jpeg|webp|svg|js|css|html)$/,
 	new StaleWhileRevalidate({
 		cacheName : 'static-resources'
 	})
