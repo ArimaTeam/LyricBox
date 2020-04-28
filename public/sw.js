@@ -5,6 +5,7 @@ const staticAssets = [
 	'/global.css',
 	'/build/bundle.css',
 	'/build/bundle.js',
+	'/images/*',
 	'/favicon.png'
 ];
 
