@@ -1,8 +1,8 @@
 {
     "name": "LyricBox",
     "short_name": "LyricBox",
-    "theme_color": "#2196f3",
-    "background_color": "#2196f3",
+    "theme_color": "#eeeeee",
+    "background_color": "#eeeeee",
     "display": "standalone",
     "orientation": "portrait",
     "Scope": "/",

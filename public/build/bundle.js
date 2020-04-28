@@ -1845,6 +1845,7 @@ var app = (function () {
     	let button;
     	let img;
     	let img_src_value;
+    	let img_style_value;
     	let dispose;
 
     	const block = {
@@ -1856,16 +1857,17 @@ var app = (function () {
     			? /*image*/ ctx[3]
     			: "images/Group 36.svg")) attr_dev(img, "src", img_src_value);
 
+    			attr_dev(img, "style", img_style_value = /*dark*/ ctx[0] && "background-color: #252427 !important;");
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-1g5996d");
+    			attr_dev(img, "class", "svelte-19pbggj");
     			toggle_class(img, "dark", /*dark*/ ctx[0]);
-    			add_location(img, file$2, 57, 2, 991);
+    			add_location(img, file$2, 61, 2, 1042);
     			set_style(button, "width", /*width*/ ctx[1]);
     			set_style(button, "border-radius", /*bordered*/ ctx[2] ? "20px" : "10px");
-    			attr_dev(button, "class", "svelte-1g5996d");
+    			attr_dev(button, "class", "svelte-19pbggj");
     			toggle_class(button, "selected", /*selected*/ ctx[4]);
     			toggle_class(button, "dark", /*dark*/ ctx[0]);
-    			add_location(button, file$2, 49, 0, 821);
+    			add_location(button, file$2, 53, 0, 872);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1885,6 +1887,10 @@ var app = (function () {
     			? /*image*/ ctx[3]
     			: "images/Group 36.svg")) {
     				attr_dev(img, "src", img_src_value);
+    			}
+
+    			if (dirty & /*dark*/ 1 && img_style_value !== (img_style_value = /*dark*/ ctx[0] && "background-color: #252427 !important;")) {
+    				attr_dev(img, "style", img_style_value);
     			}
 
     			if (dirty & /*dark*/ 1) {

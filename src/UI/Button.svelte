@@ -21,30 +21,26 @@
   .selected {
     box-shadow: 14px 18px 36px rgba(0, 0, 0, 0.1);
   }
-  .dark {
-    background: #161616;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    button {
-      background-color: #252427!important;
-      
-    }
-    img {
-      filter:invert(100%);
-
-    }
-    button.dark  {
-      
-      background-color: #252427!important;
+  button.dark {
+    background: #252427 !important;
   }
   img.dark {
-    background:none;
-          filter:invert(0);
-
+    background: none;
   }
-
-
+  @media (prefers-color-scheme: dark) {
+    button {
+      background-color: #252427 !important;
+    }
+    img {
+      filter: invert(100%);
+    }
+    button.dark {
+      background-color: #252427 !important;
+    }
+    img.dark {
+      background: none;
+      filter: invert(0);
+    }
   }
 </style>
 
@@ -56,6 +52,10 @@
   on:click={() => {
     dispatch('genre');
   }}>
-  <img class:dark src={image ? image : 'images/Group 36.svg'} alt="" />
+  <img
+    class:dark
+    src={image ? image : 'images/Group 36.svg'}
+    style={dark && 'background-color: #252427 !important;'}
+    alt="" />
 
 </button>
